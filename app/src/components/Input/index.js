@@ -7,7 +7,7 @@ import './index.css';
 export const Input = ({text}) => {
     return(
         <div>
-            <input type={text}/>
+            <input type={text} accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
         </div>
     )
 };
