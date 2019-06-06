@@ -6,7 +6,7 @@ import './index.css';
 
 export const Option = ({item}) => {
     return(
-        <option>
+        <option value={item}>
             {item}
         </option>
     )
