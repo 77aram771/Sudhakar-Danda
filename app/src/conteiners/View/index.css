@@ -11,7 +11,7 @@
 }
 
 .view_header {
-    margin: 20px 0 50px 0;
+    margin: 20px 0 10px 0;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -36,7 +36,7 @@
 }
 
 .view_table {
-    margin: 0 0 10px 0;
+    margin: 10px 0 10px 0;
     width: 100%;
     height: auto;
     border: 1px solid red;
@@ -78,6 +78,14 @@
     background-color: #d0d7e8;
     margin: 0 1px;
 }
-
-
+.view_details {
+    margin: 5px 0 0 0;
+    width: 67%;
+}
+.view_details_button button {
+    padding: 2px 20px;
+    background-color: #00afef;
+    color: white;
+    border: none;
+}
 

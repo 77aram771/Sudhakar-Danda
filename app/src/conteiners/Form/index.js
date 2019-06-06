@@ -4,20 +4,43 @@
 import React from 'react';
 import './index.css';
 import {Option} from '../../components/Option'
-
+var name = [];
 export default class Form extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            file: null
+            file: null,
+            itemName: null
         }
     }
 
+    componentDidMount(){
+        if(this.props.items_options === null){
 
+        }
+        else {
+            this.setState({
+                itemName: name
+            }, () => console.log(this.state.itemName))
+        }
+
+    }
 
     render() {
-        const {items_options, files_name, files_option} = this.props;
+        const {items_options, files_option, files_object} = this.props;
+        if (files_object === null) {
+            var object = null;
+        }
+        else {
 
+            var object = Object.values(files_object);
+
+            object[0].map(item => {
+                return (
+                    name.push(item.name)
+                )
+            });
+        }
         return (
             <div className="form">
                 <div className="form_input">
@@ -40,7 +63,7 @@ export default class Form extends React.Component {
                     </div>
                 </div>
                 <div className="form_child_tree">
-
+                    {this.state.itemName}
                     <span>Drag Drop XLSX Files</span>
                     <input id="form_input_flie" type="file"
                            accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'

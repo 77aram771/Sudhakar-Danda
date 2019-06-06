@@ -16,8 +16,8 @@ class App extends React.Component {
                 }
 
             ],
-            files_name: null,
             files_object: null,
+            files_name: [],
             files_option: 'Master',
             import_bool: false
         }
@@ -25,9 +25,11 @@ class App extends React.Component {
 
 
 
+
+
     //noinspection JSAnnotator
     handleChange = (selectorFiles: FileList) => {
-        console.log('selectorFiles',selectorFiles)
+
         let obj = {...selectorFiles};
         let object = Object.values(obj);
         let id = 0;
@@ -38,7 +40,7 @@ class App extends React.Component {
         });
 
         this.setState({
-            files_object: {...object},
+            files_object: {...this.state.files_object, object},
         })
     };
 
@@ -58,15 +60,14 @@ class App extends React.Component {
             <div className="App">
                 <Form
                     items_options={this.state.items}
-                    files_name={this.state.files_name}
                     files_option={this.state.files_option}
+                    files_object={this.state.files_object}
                     handleChange={this.handleChange}
                     handleSelectChange={this.handleSelectChange}
                     handleImportClick={this.handleImportClick}
 
                 />
                 <View
-                    files_name={this.state.files_name}
                     files_option={this.state.files_option}
                     import_bool={this.state.import_bool}
                     files_object={this.state.files_object}

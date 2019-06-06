@@ -4,24 +4,31 @@
 import React from 'react';
 import './index.css';
 import {List} from '../../components/Create_List'
+import {Tabe_details} from '../../components/Tabe_details'
 
 
 export default class View extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            bool: false,
+            name: ''
+        }
     }
 
     render() {
-        const {files_object, import_bool, files_option  } = this.props;
-        if(files_object === null) {
+        const {files_object, import_bool, files_option} = this.props;
+
+        if (files_object === null) {
             var object = null;
         }
-        else  {
+        else {
             var object = Object.values(files_object);
         }
 
         return (
+
             <div className="view">
                 <div className="view_header">
                     <span>File List</span>
@@ -53,12 +60,20 @@ export default class View extends React.Component {
                     </div>
                 </div>
                 { files_object === null ? '' :
-                    object.map((item, index) => {
+                    object[0].map((item, index) => {
                         return (
-                            <List key={index} import_boo={import_bool} files_name={item.name} data={item.lastModifiedDate} files_option={files_option}/>
+                            <List key={index} import_boo={import_bool} files_name={item.name}
+                                  data={item.lastModifiedDate} files_option={files_option}/>
                         )
                     })
                 }
+                <div className="view_details">
+                    <div className="view_details_button">
+                        <button onClick={() => this.setState({bool: true})}>File details</button>
+                    </div>
+                </div>
+
+                {this.state.bool ? <Tabe_details/> : ''}
             </div>
         )
     }
