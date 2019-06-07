@@ -5,7 +5,8 @@ import React from 'react';
 import './index.css';
 
 export const List = ({lastModifiedDate, files_name, files_option}) => {
-
+    console.log(lastModifiedDate)
+    console.log(lastModifiedDate)
     return (<div className="view_table_items">
         <div>
             <input type="checkbox"/>
@@ -20,13 +21,13 @@ export const List = ({lastModifiedDate, files_name, files_option}) => {
         <div className="view_items">
             <div className="view_item">
                 <div className="view_item_name">
-                    {files_option[0]}
+
                 </div>
             </div>
         </div>
         <div className="view_items">
             <div className="view_item">
-
+                {files_option[0]}
             </div>
         </div>
         <div className="view_items">

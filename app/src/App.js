@@ -29,7 +29,13 @@ class App extends React.Component {
 
     //noinspection JSAnnotator
     handleChange = (selectorFiles: FileList) => {
+        const a = []
 
+        Array.from(selectorFiles).forEach(i => {a.push(i)})
+        console.log('Log ::: selectorFiles :::', a);
+
+
+        
         let obj = {...selectorFiles};
         let object = Object.values(obj);
         let id = 0;
@@ -39,8 +45,11 @@ class App extends React.Component {
             )
         });
 
+        console.log('Log ::: this.state.files_object :::', this.state.files_object);
+        console.log('Log ::: object :::', object);
+
         this.setState({
-            files_object: {...this.state.files_object, object},
+            files_object: [...(this.state.files_object || []), ...object],
         })
     };
 

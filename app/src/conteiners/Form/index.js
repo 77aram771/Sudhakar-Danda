@@ -14,33 +14,25 @@ export default class Form extends React.Component {
         }
     }
 
-    componentDidMount(){
-        if(this.props.items_options === null){
-
-        }
-        else {
-            this.setState({
-                itemName: name
-            }, () => console.log(this.state.itemName))
-        }
+    componentDidMount() {
+        // if (this.props.files_object === null) {
+        //     var object = null;
+        // }
+        // else {
+        //
+        //     var object = Object.values(this.props.files_object);
+        //
+        //     object.map(item => {
+        //         return (
+        //             name.push(item.name)
+        //         )
+        //     });
+        // }
 
     }
 
     render() {
         const {items_options, files_option, files_object} = this.props;
-        if (files_object === null) {
-            var object = null;
-        }
-        else {
-
-            var object = Object.values(files_object);
-
-            object[0].map(item => {
-                return (
-                    name.push(item.name)
-                )
-            });
-        }
         return (
             <div className="form">
                 <div className="form_input">

@@ -60,7 +60,7 @@ export default class View extends React.Component {
                     </div>
                 </div>
                 { files_object === null ? '' :
-                    object[0].map((item, index) => {
+                    object.map((item, index) => {
                         return (
                             <List key={index} import_boo={import_bool} files_name={item.name}
                                   data={item.lastModifiedDate} files_option={files_option}/>
